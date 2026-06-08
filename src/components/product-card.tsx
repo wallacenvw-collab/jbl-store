@@ -10,18 +10,17 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { AddToCartButton } from "@/components/add-to-cart-button"
+import { ProductImage } from "@/components/product-image"
 
 export function ProductCard({ product }: { product: Product }) {
   return (
     <Card className="flex flex-col overflow-hidden transition-shadow hover:shadow-md">
       <Link href={`/produtos/${product.slug}`}>
-        <div
-          className={`flex aspect-square items-center justify-center bg-gradient-to-br ${product.color}`}
-        >
-          <span className="text-4xl font-black tracking-tight text-white/90">
-            JBL
-          </span>
-        </div>
+        <ProductImage
+          product={product}
+          className="aspect-square"
+          iconClassName="h-20 w-20"
+        />
       </Link>
       <CardHeader>
         <div className="flex items-start justify-between gap-2">

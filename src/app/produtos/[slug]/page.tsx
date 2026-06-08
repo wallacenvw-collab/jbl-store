@@ -6,6 +6,7 @@ import { getProduct, products, formatPrice } from "@/lib/products"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { AddToCartButton } from "@/components/add-to-cart-button"
+import { ProductImage } from "@/components/product-image"
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }))
@@ -25,13 +26,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </Link>
 
       <div className="mt-6 grid gap-8 lg:grid-cols-2">
-        <div
-          className={`flex aspect-square items-center justify-center rounded-2xl bg-gradient-to-br ${product.color}`}
-        >
-          <span className="text-6xl font-black tracking-tight text-white/90">
-            JBL
-          </span>
-        </div>
+        <ProductImage
+          product={product}
+          className="aspect-square rounded-2xl"
+          iconClassName="h-32 w-32"
+        />
 
         <div>
           <div className="flex items-center gap-3">

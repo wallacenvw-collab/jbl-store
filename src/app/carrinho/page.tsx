@@ -8,6 +8,7 @@ import { formatPrice } from "@/lib/products"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
+import { ProductImage } from "@/components/product-image"
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, clear, totalItems, totalPrice } =
@@ -39,11 +40,11 @@ export default function CartPage() {
           {items.map(({ product, quantity }) => (
             <Card key={product.slug}>
               <CardContent className="flex items-center gap-4 p-4">
-                <div
-                  className={`flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${product.color}`}
-                >
-                  <span className="text-sm font-black text-white/90">JBL</span>
-                </div>
+                <ProductImage
+                  product={product}
+                  className="h-20 w-20 shrink-0 rounded-lg"
+                  iconClassName="h-8 w-8"
+                />
 
                 <div className="min-w-0 flex-1">
                   <Link
